@@ -13,10 +13,13 @@ Public Class AnalysisChart
 	Private WithEvents dbDetails As DBDataSet
 	Private WithEvents dbAddresses As DBDataSet
 
+	Private WithEvents dbNumInvoices As DBDataSet
+
 	Private tableCompanies As DataTable
 	Private tableInvoices As DataTable
 	Private tableDetails As DataTable
 	Private tableAddresses As DataTable
+	Private tableNumInvoices As DataTable
 
 	Private WithEvents dsMaster As DataSet
 
@@ -40,11 +43,13 @@ Public Class AnalysisChart
 		dbInvoices = New DBDataSet()
 		dbDetails = New DBDataSet()
 		dbAddresses = New DBDataSet()
+		dbNumInvoices = New DBDataSet()
 
 		tableCompanies = New DataTable("tableCompanies")
 		tableInvoices = New DataTable("tableInvoices")
 		tableDetails = New DataTable("tableDetails")
 		tableAddresses = New DataTable("tableAddresses")
+		tableNumInvoices = New DataTable("tableNumInvoices")
 
 		'Set procedures.
 		dbCompanies.FetchStoredProcedure = "fetch_companies"
@@ -67,10 +72,13 @@ Public Class AnalysisChart
 		dbDetails.UpdateStoredProcedure = "update_detail"
 		dbDetails.DeleteStoredProcedure = "delete_detail"
 
+		dbNumInvoices.FetchStoredProcedure = "fetch_num_invoices"
+
 		dbCompanies.FetchDataTable(tableCompanies)
 		dbInvoices.FetchDataTable(tableInvoices)
 		dbDetails.FetchDataTable(tableDetails)
 		dbAddresses.FetchDataTable(tableAddresses)
+		dbNumInvoices.FetchDataTable(tableNumInvoices)
 
 		'Set DataSet for relations.
 		dsMaster = New DataSet()
@@ -80,6 +88,7 @@ Public Class AnalysisChart
 		dsMaster.Tables.Add(tableInvoices)
 		dsMaster.Tables.Add(tableDetails)
 		dsMaster.Tables.Add(tableAddresses)
+		dsMaster.Tables.Add(tableNumInvoices)
 
 		System.Console.WriteLine("COUNT: {0} ", dsMaster.Tables.Count)
 
@@ -93,18 +102,39 @@ Public Class AnalysisChart
 		barChartControl.DataSource = dsMaster.Tables("tableCompanies")
 
 		' Set the Y-Axis to integer values
-		'CType(barChartControl.Diagram, XYDiagram).AxisY.GridSpacingAuto = False
-		'CType(barChartControl.Diagram, XYDiagram).AxisY.GridSpacing = 1
+		CType(barChartControl.Diagram, XYDiagram).AxisY.GridSpacingAuto = False
+		CType(barChartControl.Diagram, XYDiagram).AxisY.GridSpacing = 1
 
 	End Sub
 
 
 	Private Sub AnalysisChart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		Dim numInvoices As Integer
+		Dim companyName As String
 
-	End Sub
+		'Create a series for invoice counts bar chart.
+		barChartControl.Series.Clear()
+		barChartSeries = New Series("Invoices", ViewType.Bar)
 
+		' Obtain number of invoices per company
+		For Each companyResult As DataRow In tableNumInvoices.Rows
+			numInvoices = (CType(companyResult("sum_invoices"), Integer))
+			companyName = companyResult("name").ToString()
+			barChartSeries.Points.Add(New SeriesPoint(companyName, numInvoices))
+		Next
 
-	Private Sub ChartControl2_Click(sender As Object, e As EventArgs) Handles barChartControl.Click
+		' Set up bar graph appearance and display
+		Dim view As BarSeriesView = CType(barChartSeries.View, BarSeriesView)
+		view.ColorEach = True
+
+		Dim barLabel As BarSeriesLabel = CType(barChartSeries.Label, BarSeriesLabel)
+		barLabel.TextPattern = "{A}: {V}"
+		barLabel.Font = New Font("Tahoma", 8, FontStyle.Regular)
+
+		Dim barChartTitle As New ChartTitle() With {.Text = "Number of Invoices Per Company", .Font = New Font("Tahoma", 14, FontStyle.Bold)}
+
+		barChartControl.Titles.Add(barChartTitle)
+		barChartControl.Series.Add(barChartSeries)
 
 	End Sub
 End Class
