@@ -91,14 +91,13 @@
 		Me.addressesGridColumn = New DevExpress.XtraGrid.Columns.GridColumn()
 		Me.phoneGridColumn = New DevExpress.XtraGrid.Columns.GridColumn()
 		Me.dateModifyGridColumn = New DevExpress.XtraGrid.Columns.GridColumn()
-		Me.deleteAddressOptionGridColumn = New DevExpress.XtraGrid.Columns.GridColumn()
-		Me.delete_address_button = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
 		Me.CompanyGridView = New DevExpress.XtraGrid.Views.Grid.GridView()
 		Me.companyNameCol = New DevExpress.XtraGrid.Columns.GridColumn()
 		Me.companyIDCol = New DevExpress.XtraGrid.Columns.GridColumn()
 		Me.deleteCompanyBtnColumn = New DevExpress.XtraGrid.Columns.GridColumn()
 		Me.button_delete = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
 		Me.delete_invoice_button = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+		Me.delete_address_button = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
 		Me.LayoutView1 = New DevExpress.XtraGrid.Views.Layout.LayoutView()
 		Me.DetailGridView = New DevExpress.XtraGrid.Views.Grid.GridView()
 		Me.invoiceDetailGridColumn = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -125,10 +124,10 @@
 		CType(Me.InvoiceGridView, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.AddressGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.delete_address_button, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.CompanyGridView, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.button_delete, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.delete_invoice_button, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.delete_address_button, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.LayoutView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.DetailGridView, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.MenuStrip1.SuspendLayout()
@@ -137,6 +136,7 @@
 		'
 		'InvoiceGridView
 		'
+		Me.InvoiceGridView.Appearance.EvenRow.BackColor = System.Drawing.Color.White
 		Me.InvoiceGridView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.InvoiceIDColumn, Me.GridColumn3, Me.InvoiceDateColumn, Me.TermsColumn})
 		Me.InvoiceGridView.GridControl = Me.GridControl1
 		Me.InvoiceGridView.Name = "InvoiceGridView"
@@ -158,6 +158,10 @@
 		'
 		'InvoiceDateColumn
 		'
+		Me.InvoiceDateColumn.AppearanceCell.BackColor = System.Drawing.Color.MistyRose
+		Me.InvoiceDateColumn.AppearanceCell.Options.UseBackColor = True
+		Me.InvoiceDateColumn.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral
+		Me.InvoiceDateColumn.AppearanceHeader.Options.UseBackColor = True
 		Me.InvoiceDateColumn.Caption = "Invoice Date"
 		Me.InvoiceDateColumn.DisplayFormat.FormatString = "d"
 		Me.InvoiceDateColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
@@ -168,6 +172,10 @@
 		'
 		'TermsColumn
 		'
+		Me.TermsColumn.AppearanceCell.BackColor = System.Drawing.Color.MistyRose
+		Me.TermsColumn.AppearanceCell.Options.UseBackColor = True
+		Me.TermsColumn.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral
+		Me.TermsColumn.AppearanceHeader.Options.UseBackColor = True
 		Me.TermsColumn.Caption = "Terms"
 		Me.TermsColumn.FieldName = "terms"
 		Me.TermsColumn.Name = "TermsColumn"
@@ -197,7 +205,8 @@
 		'
 		'AddressGridView
 		'
-		Me.AddressGridView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.companyIDAddressGridColumn, Me.addressIDGridColumn, Me.addressesGridColumn, Me.phoneGridColumn, Me.dateModifyGridColumn, Me.deleteAddressOptionGridColumn})
+		Me.AddressGridView.Appearance.EvenRow.BackColor = System.Drawing.Color.White
+		Me.AddressGridView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.companyIDAddressGridColumn, Me.addressIDGridColumn, Me.addressesGridColumn, Me.phoneGridColumn, Me.dateModifyGridColumn})
 		Me.AddressGridView.GridControl = Me.GridControl1
 		Me.AddressGridView.Name = "AddressGridView"
 		Me.AddressGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top
@@ -224,6 +233,10 @@
 		'
 		'addressesGridColumn
 		'
+		Me.addressesGridColumn.AppearanceCell.BackColor = System.Drawing.Color.LightCyan
+		Me.addressesGridColumn.AppearanceCell.Options.UseBackColor = True
+		Me.addressesGridColumn.AppearanceHeader.BackColor = System.Drawing.Color.SkyBlue
+		Me.addressesGridColumn.AppearanceHeader.Options.UseBackColor = True
 		Me.addressesGridColumn.Caption = "Addresses"
 		Me.addressesGridColumn.FieldName = "addresses"
 		Me.addressesGridColumn.Name = "addressesGridColumn"
@@ -232,6 +245,10 @@
 		'
 		'phoneGridColumn
 		'
+		Me.phoneGridColumn.AppearanceCell.BackColor = System.Drawing.Color.LightCyan
+		Me.phoneGridColumn.AppearanceCell.Options.UseBackColor = True
+		Me.phoneGridColumn.AppearanceHeader.BackColor = System.Drawing.Color.SkyBlue
+		Me.phoneGridColumn.AppearanceHeader.Options.UseBackColor = True
 		Me.phoneGridColumn.Caption = "Phone"
 		Me.phoneGridColumn.FieldName = "phone"
 		Me.phoneGridColumn.Name = "phoneGridColumn"
@@ -240,6 +257,10 @@
 		'
 		'dateModifyGridColumn
 		'
+		Me.dateModifyGridColumn.AppearanceCell.BackColor = System.Drawing.Color.LightCyan
+		Me.dateModifyGridColumn.AppearanceCell.Options.UseBackColor = True
+		Me.dateModifyGridColumn.AppearanceHeader.BackColor = System.Drawing.Color.SkyBlue
+		Me.dateModifyGridColumn.AppearanceHeader.Options.UseBackColor = True
 		Me.dateModifyGridColumn.Caption = "Date Modify"
 		Me.dateModifyGridColumn.DisplayFormat.FormatString = "d"
 		Me.dateModifyGridColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
@@ -248,31 +269,23 @@
 		Me.dateModifyGridColumn.Visible = True
 		Me.dateModifyGridColumn.VisibleIndex = 2
 		'
-		'deleteAddressOptionGridColumn
-		'
-		Me.deleteAddressOptionGridColumn.Caption = "GridColumn1"
-		Me.deleteAddressOptionGridColumn.ColumnEdit = Me.delete_address_button
-		Me.deleteAddressOptionGridColumn.Name = "deleteAddressOptionGridColumn"
-		Me.deleteAddressOptionGridColumn.Visible = True
-		Me.deleteAddressOptionGridColumn.VisibleIndex = 3
-		'
-		'delete_address_button
-		'
-		Me.delete_address_button.AutoHeight = False
-		Me.delete_address_button.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, CType(resources.GetObject("delete_address_button.Buttons"), System.Drawing.Image), New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
-		Me.delete_address_button.Name = "delete_address_button"
-		Me.delete_address_button.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
-		'
 		'CompanyGridView
 		'
+		Me.CompanyGridView.Appearance.GroupButton.BackColor = System.Drawing.Color.White
+		Me.CompanyGridView.Appearance.GroupButton.Options.UseBackColor = True
+		Me.CompanyGridView.Appearance.GroupRow.BackColor = System.Drawing.Color.White
 		Me.CompanyGridView.Appearance.GroupRow.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.CompanyGridView.Appearance.GroupRow.Options.UseBackColor = True
 		Me.CompanyGridView.Appearance.GroupRow.Options.UseFont = True
+		Me.CompanyGridView.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+		Me.CompanyGridView.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+		Me.CompanyGridView.Appearance.HeaderPanel.Options.UseBackColor = True
 		Me.CompanyGridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D
 		Me.CompanyGridView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.companyNameCol, Me.companyIDCol, Me.deleteCompanyBtnColumn})
 		Me.CompanyGridView.GridControl = Me.GridControl1
 		Me.CompanyGridView.Name = "CompanyGridView"
 		Me.CompanyGridView.OptionsDetail.AllowExpandEmptyDetails = True
-		Me.CompanyGridView.OptionsView.AllowCellMerge = True
+		Me.CompanyGridView.OptionsView.ShowGroupPanel = False
 		Me.CompanyGridView.PaintStyleName = "Style3D"
 		'
 		'companyNameCol
@@ -300,16 +313,23 @@
 		'button_delete
 		'
 		Me.button_delete.AutoHeight = False
-		Me.button_delete.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, CType(resources.GetObject("button_delete.Buttons"), System.Drawing.Image), New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", Nothing, Nothing, True)})
+		Me.button_delete.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, CType(resources.GetObject("button_delete.Buttons"), System.Drawing.Image), New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
 		Me.button_delete.Name = "button_delete"
 		Me.button_delete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
 		'
 		'delete_invoice_button
 		'
 		Me.delete_invoice_button.AutoHeight = False
-		Me.delete_invoice_button.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, CType(resources.GetObject("delete_invoice_button.Buttons"), System.Drawing.Image), New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, "", Nothing, Nothing, True)})
+		Me.delete_invoice_button.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, CType(resources.GetObject("delete_invoice_button.Buttons"), System.Drawing.Image), New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", Nothing, Nothing, True)})
 		Me.delete_invoice_button.Name = "delete_invoice_button"
 		Me.delete_invoice_button.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
+		'
+		'delete_address_button
+		'
+		Me.delete_address_button.AutoHeight = False
+		Me.delete_address_button.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, CType(resources.GetObject("delete_address_button.Buttons"), System.Drawing.Image), New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, "", Nothing, Nothing, True)})
+		Me.delete_address_button.Name = "delete_address_button"
+		Me.delete_address_button.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
 		'
 		'LayoutView1
 		'
@@ -339,6 +359,10 @@
 		'
 		'descriptionGridColumn
 		'
+		Me.descriptionGridColumn.AppearanceCell.BackColor = System.Drawing.Color.MistyRose
+		Me.descriptionGridColumn.AppearanceCell.Options.UseBackColor = True
+		Me.descriptionGridColumn.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral
+		Me.descriptionGridColumn.AppearanceHeader.Options.UseBackColor = True
 		Me.descriptionGridColumn.Caption = "Description"
 		Me.descriptionGridColumn.FieldName = "description"
 		Me.descriptionGridColumn.Name = "descriptionGridColumn"
@@ -347,6 +371,10 @@
 		'
 		'quantityGridColumn
 		'
+		Me.quantityGridColumn.AppearanceCell.BackColor = System.Drawing.Color.MistyRose
+		Me.quantityGridColumn.AppearanceCell.Options.UseBackColor = True
+		Me.quantityGridColumn.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral
+		Me.quantityGridColumn.AppearanceHeader.Options.UseBackColor = True
 		Me.quantityGridColumn.Caption = "Quantity"
 		Me.quantityGridColumn.FieldName = "quantity"
 		Me.quantityGridColumn.Name = "quantityGridColumn"
@@ -355,6 +383,10 @@
 		'
 		'costGridColumn
 		'
+		Me.costGridColumn.AppearanceCell.BackColor = System.Drawing.Color.MistyRose
+		Me.costGridColumn.AppearanceCell.Options.UseBackColor = True
+		Me.costGridColumn.AppearanceHeader.BackColor = System.Drawing.Color.LightCoral
+		Me.costGridColumn.AppearanceHeader.Options.UseBackColor = True
 		Me.costGridColumn.Caption = "Cost"
 		Me.costGridColumn.FieldName = "cost"
 		Me.costGridColumn.Name = "costGridColumn"
@@ -472,10 +504,10 @@
 		CType(Me.InvoiceGridView, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.AddressGridView, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.delete_address_button, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.CompanyGridView, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.button_delete, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.delete_invoice_button, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.delete_address_button, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.LayoutView1, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.DetailGridView, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.MenuStrip1.ResumeLayout(False)
@@ -512,7 +544,6 @@
 	Friend WithEvents phoneGridColumn As DevExpress.XtraGrid.Columns.GridColumn
 	Friend WithEvents dateModifyGridColumn As DevExpress.XtraGrid.Columns.GridColumn
 	Friend WithEvents delete_invoice_button As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
-	Friend WithEvents deleteAddressOptionGridColumn As DevExpress.XtraGrid.Columns.GridColumn
 	Friend WithEvents delete_address_button As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
 	Friend WithEvents LayoutView1 As DevExpress.XtraGrid.Views.Layout.LayoutView
 	Friend WithEvents LayoutViewCard1 As DevExpress.XtraGrid.Views.Layout.LayoutViewCard

@@ -118,16 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="delete_address_button.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADKSURBVChTVY2hCgJREEWn2IwGi8WyQRBBUNGwxaCC
-        RVBQMBg0iGCwGF/TavAHjH6LwWKyiG2TJhEM17nvvYXdcJiZew+MYNEmRoHfkzBjJ/KbhUYBznv4KSSZ
-        0ZHPpAGcjEOL76pn4R7ndOQ9qBDguHFQIP5mR0eibmBfvcZ1YDdPYTPt6MgzLFgx6peAwxrYjhy620w7
-        OnKv5Yh7t+yk0YwdHbmVs06atiyPZt4S3+zoyDXIGAUYVuGnkGRGRy5FIUaB35Mw007kD5w345nUgwA0
-        AAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="button_delete.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
@@ -139,6 +129,16 @@
 </value>
   </data>
   <data name="delete_invoice_button.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADKSURBVChTVY2hCgJREEWn2IwGi8WyQRBBUNGwxaCC
+        RVBQMBg0iGCwGF/TavAHjH6LwWKyiG2TJhEM17nvvYXdcJiZew+MYNEmRoHfkzBjJ/KbhUYBznv4KSSZ
+        0ZHPpAGcjEOL76pn4R7ndOQ9qBDguHFQIP5mR0eibmBfvcZ1YDdPYTPt6MgzLFgx6peAwxrYjhy620w7
+        OnKv5Yh7t+yk0YwdHbmVs06atiyPZt4S3+zoyDXIGAUYVuGnkGRGRy5FIUaB35Mw007kD5w345nUgwA0
+        AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="delete_address_button.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADKSURBVChTVY2hCgJREEWn2IwGi8WyQRBBUNGwxaCC

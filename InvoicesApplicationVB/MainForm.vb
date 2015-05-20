@@ -261,7 +261,7 @@ Partial Public Class MainForm
 		Try
 			Tool.ShowPreview()
 		Catch ex As Exception
-			System.Console.WriteLine("Tool is messed up.")
+			System.Console.WriteLine("Do nothing since tool can't access report anymore (disposed = true)")
 		End Try
 
 	End Sub

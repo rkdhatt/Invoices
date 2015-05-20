@@ -116,10 +116,10 @@ Public Class SummaryAnalysisChart
 		Dim companyName As String
 		'Dim companyID As Integer
 		'Dim cost As Double = 0
-		'Dim exists As Boolean
+		Dim exists As Boolean
 		'Dim cmd As SqlCommand
 		'Dim costCmd As SqlCommand
-		'Dim Point As SeriesPoint
+		Dim point As SeriesPoint
 
 		'Create a series for invoice counts bar chart.
 		barChartControl.Series.Clear()
@@ -159,55 +159,41 @@ Public Class SummaryAnalysisChart
 		pieChartControl.Titles.Add(pieChartTitle)
 
 
-		'companyID = CType(tableInvoices.Rows(0)("company_id"), Integer)
-		'cmd = DBControl.GetStoredProcCmd("company_name_by_invoice")
-		'cmd.Parameters("@invoice_id").Value = CType(tableInvoices.Rows(0)("invoice_id"), Integer)
-		'cmd.Parameters("@company_name").Direction = ParameterDirection.Output
-		'DBControl.ExecuteCommand(cmd)
-
-		'companyName = CType(cmd.Parameters("@company_name").Value, String)
-		'costChartSeries = New Series(companyName, ViewType.Line)
-		'CType(costChartSeries.View, LineSeriesView).MarkerVisibility = DevExpress.Utils.DefaultBoolean.True
-		''Iterate through each invoice.
-		''   Because we sorted by company and then by date, we can create a series for
-		''   each company and add it's dates as the series points with cost of invoices
-		''   up to that date as the value.
-		'For Each invoice As DataRow In tableInvoices.Rows
-		'	If (CType(invoice("company_id"), Integer) <> companyID) Then
-		'		'Moved on to next company. Add series for last company to chart,
-		'		'   create new series for next company, and reset cost.
-		'		costChartControl.Series.Add(costChartSeries)
-		'		cost = 0
-		'		companyID = CType(invoice("company_id"), Integer)
-		'		cmd.Parameters("@invoice_id").Value = CType(invoice("invoice_id"), Integer)
-		'		DBControl.ExecuteCommand(cmd)
-
-		'		companyName = CType(cmd.Parameters("@company_name").Value, String)
-		'		costChartSeries = New Series(companyName, ViewType.Line)
-		'		CType(costChartSeries.View, LineSeriesView).MarkerVisibility = DevExpress.Utils.DefaultBoolean.True
-		'	End If
-
-		'	costCmd = DBControl.GetStoredProcCmd("calc_invoice_cost")
-		'	costCmd.Parameters("@invoice_id").Value = CType(invoice("invoice_id"), Integer)
-		'	costCmd.Parameters("@cost").Direction = ParameterDirection.Output
-		'	DBControl.ExecuteCommand(costCmd)
-		'	cost += CType(costCmd.Parameters("@cost").Value, Double)
-		'	Point = New SeriesPoint(invoice("date"), cost)
-		'	exists = False
-		'	'Check if point at that datetime already exists and update if necessary.
-		'	For Each pointCheck As SeriesPoint In costChartSeries.Points
-		'		If pointCheck.DateTimeArgument.Equals(Point.DateTimeArgument) Then
-		'			pointCheck.Values(0) = cost
-		'			exists = True
-		'		End If
-		'	Next
-		'	If Not exists Then
-		'		'Create new point.
-		'		costChartSeries.Points.Add(Point)
-		'	End If
-		'Next
-		''Add the final series to the chart.
-		'costChartControl.Series.Add(lineChartSeries)
+        'Create series for invoice cost line chart.
+		costChartControl.Series.Clear()
+		Dim cost As Integer = 0
+		For Each drCompany As DataRow In tableCompanies.Rows
+			companyName = drCompany("name").ToString()
+			costChartSeries = New Series(companyName, ViewType.Line)
+			CType(costChartSeries.View, LineSeriesView).MarkerVisibility = DevExpress.Utils.DefaultBoolean.True
+			For Each drInvoice As DataRow In tableInvoices.Rows
+				If (drCompany("company_id").Equals(drInvoice("company_id"))) Then
+					For Each drDetail As DataRow In tableDetails.Rows
+						If (drInvoice("invoice_id").Equals(drDetail("invoice_id"))) Then
+							cost += CInt(drDetail("cost"))
+							point = New SeriesPoint(drInvoice("date"), cost)
+							exists = False
+							For Each pointCheck As SeriesPoint In costChartSeries.Points
+								If pointCheck.DateTimeArgument.Equals(Point.DateTimeArgument) Then
+									pointCheck.Values(0) = cost
+									exists = True
+								End If
+							Next
+							If Not exists Then
+								costChartSeries.Points.Add(Point)
+							End If
+						End If
+					Next
+				Else
+					cost = 0
+				End If
+			Next
+			costChartControl.Series.Add(costChartSeries)
+		Next
+		Dim costChartTitle As New ChartTitle()
+		costChartTitle.Text = "Total Cost of Invoices Per Company Over Time"
+		costChartTitle.Font = New Font("Tahoma", 14, FontStyle.Bold)
+		costChartControl.Titles.Add(costChartTitle)
 
 	End Sub
 End Class

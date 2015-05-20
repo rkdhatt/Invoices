@@ -3,12 +3,12 @@ E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\bin\Debug\Inv
 E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\bin\Debug\InvoicesApplicationVB.pdb
 E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\bin\Debug\CemDB.dll
 E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.addCompanyForm.resources
+E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.SummaryAnalysisChart.resources
 E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.CompanyReport.resources
 E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.MainReport.resources
+E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.MainForm.resources
 E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.Resources.resources
 E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.vbproj.GenerateResource.Cache
 E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.exe.licenses
 E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.exe
 E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.pdb
-E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.SummaryAnalysisChart.resources
-E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.MainForm.resources
