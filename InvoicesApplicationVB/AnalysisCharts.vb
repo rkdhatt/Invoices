@@ -5,7 +5,7 @@ Imports DevExpress.XtraPrinting
 Imports DevExpress.XtraReports.UI
 Imports System.Data.SqlClient
 
-Public Class SummaryAnalysisChart
+Public Class AnalysisCharts
 	Inherits DevExpress.XtraEditors.XtraForm
 
 	Private WithEvents dbCompanies As DBDataSet
@@ -46,7 +46,7 @@ Public Class SummaryAnalysisChart
 		dbInvoices = New DBDataSet()
 		dbDetails = New DBDataSet()
 		dbAddresses = New DBDataSet()
-		dbNumInvoices = New DBDataSet()
+		dbNumInvoices = New DBDataSet()	' required for bar and pie graph (summary)
 
 		tableCompanies = New DataTable("tableCompanies")
 		tableInvoices = New DataTable("tableInvoices")
@@ -91,7 +91,6 @@ Public Class SummaryAnalysisChart
 		dsMaster.Tables.Add(tableInvoices)
 		dsMaster.Tables.Add(tableDetails)
 		dsMaster.Tables.Add(tableAddresses)
-		dsMaster.Tables.Add(tableNumInvoices)
 
 		System.Console.WriteLine("COUNT: {0} ", dsMaster.Tables.Count)
 
@@ -105,8 +104,8 @@ Public Class SummaryAnalysisChart
 		barChartControl.DataSource = dsMaster.Tables("tableCompanies")
 
 		' Set the Y-Axis to integer values
-		CType(barChartControl.Diagram, XYDiagram).AxisY.GridSpacingAuto = False
-		CType(barChartControl.Diagram, XYDiagram).AxisY.GridSpacing = 1
+		CType(barChartControl.Diagram, XYDiagram).AxisY.NumericScaleOptions.AutoGrid = False
+		CType(barChartControl.Diagram, XYDiagram).AxisY.NumericScaleOptions.GridSpacing = 1
 
 	End Sub
 
@@ -155,32 +154,35 @@ Public Class SummaryAnalysisChart
 		Dim pieLabel As PieSeriesLabel = CType(pieChartSeries.Label, PieSeriesLabel)
 		pieLabel.TextPattern = "{A}: {V} ({VP:P0})"
 		pieChartControl.Series.Add(pieChartSeries)
-		Dim pieChartTitle As New ChartTitle() With {.Text = "Amount of Invoices Per Company", .Font = New Font("Tahoma", 14, FontStyle.Bold)}
+		Dim pieChartTitle As New ChartTitle() With {.Text = "Percentage of Invoices Per Company", .Font = New Font("Tahoma", 14, FontStyle.Bold)}
 		pieChartControl.Titles.Add(pieChartTitle)
 
 
-        'Create series for invoice cost line chart.
+		'Create series for invoice cost line chart.
 		costChartControl.Series.Clear()
 		Dim cost As Integer = 0
-		For Each drCompany As DataRow In tableCompanies.Rows
-			companyName = drCompany("name").ToString()
+
+		For Each _company As DataRow In tableCompanies.Rows
+			companyName = _company("name").ToString()
 			costChartSeries = New Series(companyName, ViewType.Line)
 			CType(costChartSeries.View, LineSeriesView).MarkerVisibility = DevExpress.Utils.DefaultBoolean.True
-			For Each drInvoice As DataRow In tableInvoices.Rows
-				If (drCompany("company_id").Equals(drInvoice("company_id"))) Then
-					For Each drDetail As DataRow In tableDetails.Rows
-						If (drInvoice("invoice_id").Equals(drDetail("invoice_id"))) Then
-							cost += CInt(drDetail("cost"))
-							point = New SeriesPoint(drInvoice("date"), cost)
+
+			For Each _invoice As DataRow In tableInvoices.Rows
+				If (_company("company_id").Equals(_invoice("company_id"))) Then
+
+					For Each _detail As DataRow In tableDetails.Rows
+						If (_invoice("invoice_id").Equals(_detail("invoice_id"))) Then
+							cost += CInt(_detail("cost"))
+							point = New SeriesPoint(_invoice("date"), cost)
 							exists = False
 							For Each pointCheck As SeriesPoint In costChartSeries.Points
-								If pointCheck.DateTimeArgument.Equals(Point.DateTimeArgument) Then
+								If pointCheck.DateTimeArgument.Equals(point.DateTimeArgument) Then
 									pointCheck.Values(0) = cost
 									exists = True
 								End If
 							Next
 							If Not exists Then
-								costChartSeries.Points.Add(Point)
+								costChartSeries.Points.Add(point)
 							End If
 						End If
 					Next

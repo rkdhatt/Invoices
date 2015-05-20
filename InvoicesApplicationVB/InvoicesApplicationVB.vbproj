@@ -113,10 +113,10 @@
     <Compile Include="AddCompanyForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SummaryAnalysisChart.Designer.vb">
-      <DependentUpon>SummaryAnalysisChart.vb</DependentUpon>
+    <Compile Include="AnalysisCharts.Designer.vb">
+      <DependentUpon>AnalysisCharts.vb</DependentUpon>
     </Compile>
-    <Compile Include="SummaryAnalysisChart.vb">
+    <Compile Include="AnalysisCharts.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CompanyReport.Designer.vb">
@@ -145,8 +145,8 @@
     <EmbeddedResource Include="AddCompanyForm.resx">
       <DependentUpon>AddCompanyForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SummaryAnalysisChart.resx">
-      <DependentUpon>SummaryAnalysisChart.vb</DependentUpon>
+    <EmbeddedResource Include="AnalysisCharts.resx">
+      <DependentUpon>AnalysisCharts.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CompanyReport.resx">
       <DependentUpon>CompanyReport.vb</DependentUpon>

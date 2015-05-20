@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class SummaryAnalysisChart
+Partial Class AnalysisCharts
 	Inherits DevExpress.XtraEditors.XtraForm
 
 	'Form overrides dispose to clean up the component list.
@@ -75,7 +75,7 @@ Partial Class SummaryAnalysisChart
 		Dim CreateStepLine3DChartItem1 As DevExpress.XtraCharts.UI.CreateStepLine3DChartItem = New DevExpress.XtraCharts.UI.CreateStepLine3DChartItem()
 		Dim ChartControlCommandGalleryItemGroup2DPie1 As DevExpress.XtraCharts.UI.ChartControlCommandGalleryItemGroup2DPie = New DevExpress.XtraCharts.UI.ChartControlCommandGalleryItemGroup2DPie()
 		Dim CreatePieChartItem1 As DevExpress.XtraCharts.UI.CreatePieChartItem = New DevExpress.XtraCharts.UI.CreatePieChartItem()
-		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SummaryAnalysisChart))
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AnalysisCharts))
 		Dim CreateDoughnutChartItem1 As DevExpress.XtraCharts.UI.CreateDoughnutChartItem = New DevExpress.XtraCharts.UI.CreateDoughnutChartItem()
 		Dim CreateNestedDoughnutChartItem1 As DevExpress.XtraCharts.UI.CreateNestedDoughnutChartItem = New DevExpress.XtraCharts.UI.CreateNestedDoughnutChartItem()
 		Dim ChartControlCommandGalleryItemGroup3DPie1 As DevExpress.XtraCharts.UI.ChartControlCommandGalleryItemGroup3DPie = New DevExpress.XtraCharts.UI.ChartControlCommandGalleryItemGroup3DPie()

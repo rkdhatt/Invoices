@@ -84,7 +84,7 @@
 		Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
 		Me.InvoiceDateColumn = New DevExpress.XtraGrid.Columns.GridColumn()
 		Me.TermsColumn = New DevExpress.XtraGrid.Columns.GridColumn()
-		Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
+		Me.MainGridControl = New DevExpress.XtraGrid.GridControl()
 		Me.AddressGridView = New DevExpress.XtraGrid.Views.Grid.GridView()
 		Me.companyIDAddressGridColumn = New DevExpress.XtraGrid.Columns.GridColumn()
 		Me.addressIDGridColumn = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -122,7 +122,7 @@
 		Me.LayoutViewCard1 = New DevExpress.XtraGrid.Views.Layout.LayoutViewCard()
 		Me.LayoutViewColumn1 = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
 		CType(Me.InvoiceGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.MainGridControl, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.AddressGridView, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.CompanyGridView, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.button_delete, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -138,7 +138,7 @@
 		'
 		Me.InvoiceGridView.Appearance.EvenRow.BackColor = System.Drawing.Color.White
 		Me.InvoiceGridView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.InvoiceIDColumn, Me.GridColumn3, Me.InvoiceDateColumn, Me.TermsColumn})
-		Me.InvoiceGridView.GridControl = Me.GridControl1
+		Me.InvoiceGridView.GridControl = Me.MainGridControl
 		Me.InvoiceGridView.Name = "InvoiceGridView"
 		Me.InvoiceGridView.OptionsDetail.AllowExpandEmptyDetails = True
 		Me.InvoiceGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top
@@ -182,10 +182,10 @@
 		Me.TermsColumn.Visible = True
 		Me.TermsColumn.VisibleIndex = 1
 		'
-		'GridControl1
+		'MainGridControl
 		'
-		Me.GridControl1.Cursor = System.Windows.Forms.Cursors.Default
-		Me.GridControl1.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.MainGridControl.Cursor = System.Windows.Forms.Cursors.Default
+		Me.MainGridControl.Dock = System.Windows.Forms.DockStyle.Fill
 		GridLevelNode1.LevelTemplate = Me.InvoiceGridView
 		GridLevelNode2.LevelTemplate = Me.DetailGridView
 		GridLevelNode2.RelationName = "Invoice Details"
@@ -193,21 +193,21 @@
 		GridLevelNode1.RelationName = "Company Invoices"
 		GridLevelNode3.LevelTemplate = Me.AddressGridView
 		GridLevelNode3.RelationName = "Company Addresses"
-		Me.GridControl1.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1, GridLevelNode3})
-		Me.GridControl1.Location = New System.Drawing.Point(0, 24)
-		Me.GridControl1.LookAndFeel.SkinName = "DevExpress Dark Style"
-		Me.GridControl1.MainView = Me.CompanyGridView
-		Me.GridControl1.Name = "GridControl1"
-		Me.GridControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.button_delete, Me.delete_invoice_button, Me.delete_address_button})
-		Me.GridControl1.Size = New System.Drawing.Size(632, 254)
-		Me.GridControl1.TabIndex = 0
-		Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.AddressGridView, Me.CompanyGridView, Me.LayoutView1, Me.DetailGridView, Me.InvoiceGridView})
+		Me.MainGridControl.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1, GridLevelNode3})
+		Me.MainGridControl.Location = New System.Drawing.Point(0, 24)
+		Me.MainGridControl.LookAndFeel.SkinName = "DevExpress Dark Style"
+		Me.MainGridControl.MainView = Me.CompanyGridView
+		Me.MainGridControl.Name = "MainGridControl"
+		Me.MainGridControl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.button_delete, Me.delete_invoice_button, Me.delete_address_button})
+		Me.MainGridControl.Size = New System.Drawing.Size(632, 254)
+		Me.MainGridControl.TabIndex = 0
+		Me.MainGridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.AddressGridView, Me.CompanyGridView, Me.LayoutView1, Me.DetailGridView, Me.InvoiceGridView})
 		'
 		'AddressGridView
 		'
 		Me.AddressGridView.Appearance.EvenRow.BackColor = System.Drawing.Color.White
 		Me.AddressGridView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.companyIDAddressGridColumn, Me.addressIDGridColumn, Me.addressesGridColumn, Me.phoneGridColumn, Me.dateModifyGridColumn})
-		Me.AddressGridView.GridControl = Me.GridControl1
+		Me.AddressGridView.GridControl = Me.MainGridControl
 		Me.AddressGridView.Name = "AddressGridView"
 		Me.AddressGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top
 		Me.AddressGridView.PaintStyleName = "Web"
@@ -282,7 +282,7 @@
 		Me.CompanyGridView.Appearance.HeaderPanel.Options.UseBackColor = True
 		Me.CompanyGridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D
 		Me.CompanyGridView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.companyNameCol, Me.companyIDCol, Me.deleteCompanyBtnColumn})
-		Me.CompanyGridView.GridControl = Me.GridControl1
+		Me.CompanyGridView.GridControl = Me.MainGridControl
 		Me.CompanyGridView.Name = "CompanyGridView"
 		Me.CompanyGridView.OptionsDetail.AllowExpandEmptyDetails = True
 		Me.CompanyGridView.OptionsView.ShowGroupPanel = False
@@ -333,14 +333,14 @@
 		'
 		'LayoutView1
 		'
-		Me.LayoutView1.GridControl = Me.GridControl1
+		Me.LayoutView1.GridControl = Me.MainGridControl
 		Me.LayoutView1.Name = "LayoutView1"
 		Me.LayoutView1.TemplateCard = Nothing
 		'
 		'DetailGridView
 		'
 		Me.DetailGridView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.invoiceDetailGridColumn, Me.detailIDGridColumn, Me.descriptionGridColumn, Me.quantityGridColumn, Me.costGridColumn})
-		Me.DetailGridView.GridControl = Me.GridControl1
+		Me.DetailGridView.GridControl = Me.MainGridControl
 		Me.DetailGridView.Name = "DetailGridView"
 		Me.DetailGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top
 		Me.DetailGridView.PaintStyleName = "Web"
@@ -427,13 +427,13 @@
 		'toolStripSeparator5
 		'
 		Me.toolStripSeparator5.Name = "toolStripSeparator5"
-		Me.toolStripSeparator5.Size = New System.Drawing.Size(113, 6)
+		Me.toolStripSeparator5.Size = New System.Drawing.Size(104, 6)
 		'
 		'AboutToolStripMenuItem
 		'
 		Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-		Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
-		Me.AboutToolStripMenuItem.Text = "&About..."
+		Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+		Me.AboutToolStripMenuItem.Text = "&About"
 		'
 		'MenuStrip1
 		'
@@ -454,8 +454,8 @@
 		'SummaryChartToolStripMenuItem
 		'
 		Me.SummaryChartToolStripMenuItem.Name = "SummaryChartToolStripMenuItem"
-		Me.SummaryChartToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
-		Me.SummaryChartToolStripMenuItem.Text = "Summary Analysis"
+		Me.SummaryChartToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+		Me.SummaryChartToolStripMenuItem.Text = "Analysis Charts"
 		'
 		'ToolsToolStripMenuItem
 		'
@@ -496,13 +496,13 @@
 		'MainForm
 		'
 		Me.ClientSize = New System.Drawing.Size(632, 278)
-		Me.Controls.Add(Me.GridControl1)
+		Me.Controls.Add(Me.MainGridControl)
 		Me.Controls.Add(Me.MenuStrip1)
 		Me.MainMenuStrip = Me.MenuStrip1
 		Me.Name = "MainForm"
-		Me.Text = "Form1"
+		Me.Text = "Invoice Application"
 		CType(Me.InvoiceGridView, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.MainGridControl, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.AddressGridView, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.CompanyGridView, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.button_delete, System.ComponentModel.ISupportInitialize).EndInit()
@@ -522,7 +522,7 @@
 	Friend WithEvents InvoiceDateColumn As DevExpress.XtraGrid.Columns.GridColumn
 	Friend WithEvents GridColumn3 As DevExpress.XtraGrid.Columns.GridColumn
 	Friend WithEvents TermsColumn As DevExpress.XtraGrid.Columns.GridColumn
-	Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
+	Friend WithEvents MainGridControl As DevExpress.XtraGrid.GridControl
 	Friend WithEvents CompanyGridView As DevExpress.XtraGrid.Views.Grid.GridView
 	Friend WithEvents companyNameCol As DevExpress.XtraGrid.Columns.GridColumn
 	Friend WithEvents companyIDCol As DevExpress.XtraGrid.Columns.GridColumn

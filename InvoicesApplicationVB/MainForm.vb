@@ -187,18 +187,18 @@ Partial Public Class MainForm
 			dsCompanies.Relations.Add("Company Invoices",
 					dsCompanies.Tables(0).Columns("company_id"),
 					dsCompanies.Tables(1).Columns("company_id"), False)
-			GridControl1.LevelTree.Nodes.Add("Company Invoices", InvoiceGridView)
+			MainGridControl.LevelTree.Nodes.Add("Company Invoices", InvoiceGridView)
 
 			dsCompanies.Relations.Add("Company Addresses",
 					dsCompanies.Tables(0).Columns("company_id"),
 					dsCompanies.Tables(2).Columns("company_id"), False)
-			GridControl1.LevelTree.Nodes.Add("Company Addresses", AddressGridView)
+			MainGridControl.LevelTree.Nodes.Add("Company Addresses", AddressGridView)
 
 			dsCompanies.Relations.Add("Invoice Details",
 					dsCompanies.Tables(1).Columns("invoice_id"),
 					dsCompanies.Tables(3).Columns("invoice_id"), False)
-			GridControl1.LevelTree.Nodes.Add("Invoice Details", DetailGridView)
-			GridControl1.DataSource = dsCompanies.Tables(0)
+			MainGridControl.LevelTree.Nodes.Add("Invoice Details", DetailGridView)
+			MainGridControl.DataSource = dsCompanies.Tables(0)
 		End If
 	End Sub
 
@@ -269,7 +269,11 @@ Partial Public Class MainForm
 	' Display summary chart of all invoices from each company.
 
 	Private Sub SummaryChartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SummaryChartToolStripMenuItem.Click
-		Dim chart As SummaryAnalysisChart = New SummaryAnalysisChart()
+		Dim chart As AnalysisCharts = New AnalysisCharts()
 		chart.Show()
+	End Sub
+
+	Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+		MsgBox("Author: Raman Dhatt" & vbCrLf & "Create Date: 2015", MsgBoxStyle.OkOnly, "About")
 	End Sub
 End Class
