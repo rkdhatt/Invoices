@@ -55,21 +55,25 @@ Partial Public Class CompanyReport
 		'
 		'totalCostLabel
 		'
-		Me.totalCostLabel.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.totalCostLabel.BackColor = System.Drawing.Color.Cornsilk
+		Me.totalCostLabel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.totalCostLabel.LocationFloat = New DevExpress.Utils.PointFloat(325.0!, 0.0!)
 		Me.totalCostLabel.Name = "totalCostLabel"
 		Me.totalCostLabel.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-		Me.totalCostLabel.SizeF = New System.Drawing.SizeF(233.3333!, 23.0!)
+		Me.totalCostLabel.SizeF = New System.Drawing.SizeF(181.25!, 23.0!)
+		Me.totalCostLabel.StylePriority.UseBackColor = False
 		Me.totalCostLabel.StylePriority.UseFont = False
 		Me.totalCostLabel.Text = "[total_cost]"
 		'
 		'descriptionLabel
 		'
-		Me.descriptionLabel.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.descriptionLabel.BackColor = System.Drawing.Color.Cornsilk
+		Me.descriptionLabel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.descriptionLabel.LocationFloat = New DevExpress.Utils.PointFloat(91.66667!, 0.0!)
 		Me.descriptionLabel.Name = "descriptionLabel"
 		Me.descriptionLabel.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
 		Me.descriptionLabel.SizeF = New System.Drawing.SizeF(233.3333!, 23.0!)
+		Me.descriptionLabel.StylePriority.UseBackColor = False
 		Me.descriptionLabel.StylePriority.UseFont = False
 		Me.descriptionLabel.Text = "[description]"
 		'
@@ -95,50 +99,68 @@ Partial Public Class CompanyReport
 		'
 		'totalCostTitleLabel
 		'
-		Me.totalCostTitleLabel.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.totalCostTitleLabel.BackColor = System.Drawing.Color.DarkRed
+		Me.totalCostTitleLabel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.totalCostTitleLabel.ForeColor = System.Drawing.Color.White
 		Me.totalCostTitleLabel.LocationFloat = New DevExpress.Utils.PointFloat(325.0!, 46.79165!)
 		Me.totalCostTitleLabel.Name = "totalCostTitleLabel"
 		Me.totalCostTitleLabel.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
 		Me.totalCostTitleLabel.SizeF = New System.Drawing.SizeF(181.25!, 23.0!)
+		Me.totalCostTitleLabel.StylePriority.UseBackColor = False
 		Me.totalCostTitleLabel.StylePriority.UseFont = False
+		Me.totalCostTitleLabel.StylePriority.UseForeColor = False
 		Me.totalCostTitleLabel.Text = "Total Cost"
 		'
 		'descriptionTitleLabel
 		'
-		Me.descriptionTitleLabel.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.descriptionTitleLabel.BackColor = System.Drawing.Color.DarkRed
+		Me.descriptionTitleLabel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.descriptionTitleLabel.ForeColor = System.Drawing.Color.White
 		Me.descriptionTitleLabel.LocationFloat = New DevExpress.Utils.PointFloat(91.66666!, 46.79165!)
 		Me.descriptionTitleLabel.Name = "descriptionTitleLabel"
 		Me.descriptionTitleLabel.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
 		Me.descriptionTitleLabel.SizeF = New System.Drawing.SizeF(233.3333!, 23.0!)
+		Me.descriptionTitleLabel.StylePriority.UseBackColor = False
 		Me.descriptionTitleLabel.StylePriority.UseFont = False
+		Me.descriptionTitleLabel.StylePriority.UseForeColor = False
 		Me.descriptionTitleLabel.Text = "Description"
 		'
 		'termsLabel
 		'
-		Me.termsLabel.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.termsLabel.LocationFloat = New DevExpress.Utils.PointFloat(238.5417!, 10.00001!)
+		Me.termsLabel.BackColor = System.Drawing.Color.DarkRed
+		Me.termsLabel.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.termsLabel.ForeColor = System.Drawing.Color.White
+		Me.termsLabel.LocationFloat = New DevExpress.Utils.PointFloat(300.0!, 10.00001!)
 		Me.termsLabel.Name = "termsLabel"
 		Me.termsLabel.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
 		Me.termsLabel.SizeF = New System.Drawing.SizeF(181.25!, 23.0!)
+		Me.termsLabel.StylePriority.UseBackColor = False
 		Me.termsLabel.StylePriority.UseFont = False
+		Me.termsLabel.StylePriority.UseForeColor = False
 		Me.termsLabel.Text = "[terms]"
 		'
 		'invoice_dateLabel
 		'
-		Me.invoice_dateLabel.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.invoice_dateLabel.BackColor = System.Drawing.Color.DarkRed
+		Me.invoice_dateLabel.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.invoice_dateLabel.ForeColor = System.Drawing.Color.White
 		Me.invoice_dateLabel.LocationFloat = New DevExpress.Utils.PointFloat(57.29167!, 10.00001!)
 		Me.invoice_dateLabel.Name = "invoice_dateLabel"
 		Me.invoice_dateLabel.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-		Me.invoice_dateLabel.SizeF = New System.Drawing.SizeF(181.25!, 23.0!)
+		Me.invoice_dateLabel.SizeF = New System.Drawing.SizeF(242.7083!, 23.0!)
+		Me.invoice_dateLabel.StylePriority.UseBackColor = False
 		Me.invoice_dateLabel.StylePriority.UseFont = False
+		Me.invoice_dateLabel.StylePriority.UseForeColor = False
 		Me.invoice_dateLabel.Text = "[date]"
 		'
 		'XrPageInfo1
 		'
+		Me.XrPageInfo1.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(550.0!, 34.29168!)
 		Me.XrPageInfo1.Name = "XrPageInfo1"
 		Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
 		Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+		Me.XrPageInfo1.StylePriority.UseFont = False
 		'
 		'PageFooter
 		'

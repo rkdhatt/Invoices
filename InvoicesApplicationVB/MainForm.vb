@@ -2,7 +2,7 @@
 Imports System.Text
 Imports CemDB
 
-Partial Public Class Form1
+Partial Public Class MainForm
 	Inherits DevExpress.XtraEditors.XtraForm
 
 	Private WithEvents dbCompanies As DBDataSet
@@ -269,7 +269,7 @@ Partial Public Class Form1
 	' Display summary chart of all invoices from each company.
 
 	Private Sub SummaryChartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SummaryChartToolStripMenuItem.Click
-		Dim chart As AnalysisChart = New AnalysisChart()
+		Dim chart As SummaryAnalysisChart = New SummaryAnalysisChart()
 		chart.Show()
 	End Sub
 End Class

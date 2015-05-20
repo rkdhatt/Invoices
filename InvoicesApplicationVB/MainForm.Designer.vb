@@ -1,14 +1,14 @@
-﻿Partial Public Class Form1
-    ''' <summary>
-    ''' Required designer variable.
-    ''' </summary>
-    Private components As System.ComponentModel.IContainer = Nothing
+﻿Partial Public Class MainForm
+	''' <summary>
+	''' Required designer variable.
+	''' </summary>
+	Private components As System.ComponentModel.IContainer = Nothing
 
-    ''' <summary>
-    ''' Clean up any resources being used.
-    ''' </summary>
-    ''' <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+	''' <summary>
+	''' Clean up any resources being used.
+	''' </summary>
+	''' <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
 		If disposing Then
 			If components IsNot Nothing Then
 				components.Dispose()
@@ -62,20 +62,20 @@
 				tableInvoiceDetails = Nothing
 			End If
 		End If
-        MyBase.Dispose(disposing)
-    End Sub
+		MyBase.Dispose(disposing)
+	End Sub
 
 #Region "Windows Form Designer generated code"
 
-    ''' <summary>
-    ''' Required method for Designer support - do not modify
-    ''' the contents of this method with the code editor.
-    ''' </summary>
-    Private Sub InitializeComponent()
+	''' <summary>
+	''' Required method for Designer support - do not modify
+	''' the contents of this method with the code editor.
+	''' </summary>
+	Private Sub InitializeComponent()
 		Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
 		Dim GridLevelNode2 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
 		Dim GridLevelNode3 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
-		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
 		Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
 		Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
 		Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -142,6 +142,7 @@
 		Me.InvoiceGridView.Name = "InvoiceGridView"
 		Me.InvoiceGridView.OptionsDetail.AllowExpandEmptyDetails = True
 		Me.InvoiceGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top
+		Me.InvoiceGridView.PaintStyleName = "Web"
 		'
 		'InvoiceIDColumn
 		'
@@ -186,6 +187,7 @@
 		GridLevelNode3.RelationName = "Company Addresses"
 		Me.GridControl1.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1, GridLevelNode3})
 		Me.GridControl1.Location = New System.Drawing.Point(0, 24)
+		Me.GridControl1.LookAndFeel.SkinName = "DevExpress Dark Style"
 		Me.GridControl1.MainView = Me.CompanyGridView
 		Me.GridControl1.Name = "GridControl1"
 		Me.GridControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.button_delete, Me.delete_invoice_button, Me.delete_address_button})
@@ -199,6 +201,7 @@
 		Me.AddressGridView.GridControl = Me.GridControl1
 		Me.AddressGridView.Name = "AddressGridView"
 		Me.AddressGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top
+		Me.AddressGridView.PaintStyleName = "Web"
 		'
 		'companyIDAddressGridColumn
 		'
@@ -264,10 +267,13 @@
 		'
 		Me.CompanyGridView.Appearance.GroupRow.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.CompanyGridView.Appearance.GroupRow.Options.UseFont = True
+		Me.CompanyGridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D
 		Me.CompanyGridView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.companyNameCol, Me.companyIDCol, Me.deleteCompanyBtnColumn})
 		Me.CompanyGridView.GridControl = Me.GridControl1
 		Me.CompanyGridView.Name = "CompanyGridView"
 		Me.CompanyGridView.OptionsDetail.AllowExpandEmptyDetails = True
+		Me.CompanyGridView.OptionsView.AllowCellMerge = True
+		Me.CompanyGridView.PaintStyleName = "Style3D"
 		'
 		'companyNameCol
 		'
@@ -317,6 +323,7 @@
 		Me.DetailGridView.GridControl = Me.GridControl1
 		Me.DetailGridView.Name = "DetailGridView"
 		Me.DetailGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top
+		Me.DetailGridView.PaintStyleName = "Web"
 		'
 		'invoiceDetailGridColumn
 		'
@@ -415,8 +422,8 @@
 		'SummaryChartToolStripMenuItem
 		'
 		Me.SummaryChartToolStripMenuItem.Name = "SummaryChartToolStripMenuItem"
-		Me.SummaryChartToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
-		Me.SummaryChartToolStripMenuItem.Text = "Summary Chart"
+		Me.SummaryChartToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+		Me.SummaryChartToolStripMenuItem.Text = "Summary Analysis"
 		'
 		'ToolsToolStripMenuItem
 		'
@@ -454,13 +461,13 @@
 		Me.LayoutViewColumn1.LayoutViewField = Nothing
 		Me.LayoutViewColumn1.Name = "LayoutViewColumn1"
 		'
-		'Form1
+		'MainForm
 		'
 		Me.ClientSize = New System.Drawing.Size(632, 278)
 		Me.Controls.Add(Me.GridControl1)
 		Me.Controls.Add(Me.MenuStrip1)
 		Me.MainMenuStrip = Me.MenuStrip1
-		Me.Name = "Form1"
+		Me.Name = "MainForm"
 		Me.Text = "Form1"
 		CType(Me.InvoiceGridView, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -15,6 +15,7 @@
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -107,16 +107,16 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addCompany.Designer.vb">
-      <DependentUpon>addCompany.vb</DependentUpon>
+    <Compile Include="AddCompanyForm.Designer.vb">
+      <DependentUpon>AddCompanyForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="addCompany.vb">
+    <Compile Include="AddCompanyForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AnalysisChart.Designer.vb">
-      <DependentUpon>AnalysisChart.vb</DependentUpon>
+    <Compile Include="SummaryAnalysisChart.Designer.vb">
+      <DependentUpon>SummaryAnalysisChart.vb</DependentUpon>
     </Compile>
-    <Compile Include="AnalysisChart.vb">
+    <Compile Include="SummaryAnalysisChart.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CompanyReport.Designer.vb">
@@ -131,22 +131,22 @@
     <Compile Include="MainReport.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
     </Compile>
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <EmbeddedResource Include="addCompany.resx">
-      <DependentUpon>addCompany.vb</DependentUpon>
+    <EmbeddedResource Include="AddCompanyForm.resx">
+      <DependentUpon>AddCompanyForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AnalysisChart.resx">
-      <DependentUpon>AnalysisChart.vb</DependentUpon>
+    <EmbeddedResource Include="SummaryAnalysisChart.resx">
+      <DependentUpon>SummaryAnalysisChart.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CompanyReport.resx">
       <DependentUpon>CompanyReport.vb</DependentUpon>
@@ -154,8 +154,8 @@
     <EmbeddedResource Include="MainReport.resx">
       <DependentUpon>MainReport.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
