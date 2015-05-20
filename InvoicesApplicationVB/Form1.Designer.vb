@@ -114,14 +114,14 @@
 		Me.toolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
 		Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+		Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.SummaryChartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.PrintToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.TotalCompanyReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.SelectedCompanyReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.LayoutViewCard1 = New DevExpress.XtraGrid.Views.Layout.LayoutViewCard()
 		Me.LayoutViewColumn1 = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
-		Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-		Me.SummaryChartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		CType(Me.InvoiceGridView, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.AddressGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -388,12 +388,12 @@
 		'toolStripSeparator5
 		'
 		Me.toolStripSeparator5.Name = "toolStripSeparator5"
-		Me.toolStripSeparator5.Size = New System.Drawing.Size(149, 6)
+		Me.toolStripSeparator5.Size = New System.Drawing.Size(113, 6)
 		'
 		'AboutToolStripMenuItem
 		'
 		Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-		Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+		Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
 		Me.AboutToolStripMenuItem.Text = "&About..."
 		'
 		'MenuStrip1
@@ -404,6 +404,19 @@
 		Me.MenuStrip1.Size = New System.Drawing.Size(632, 24)
 		Me.MenuStrip1.TabIndex = 1
 		Me.MenuStrip1.Text = "MenuStrip1"
+		'
+		'ViewToolStripMenuItem
+		'
+		Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SummaryChartToolStripMenuItem})
+		Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
+		Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+		Me.ViewToolStripMenuItem.Text = "View"
+		'
+		'SummaryChartToolStripMenuItem
+		'
+		Me.SummaryChartToolStripMenuItem.Name = "SummaryChartToolStripMenuItem"
+		Me.SummaryChartToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+		Me.SummaryChartToolStripMenuItem.Text = "Summary Chart"
 		'
 		'ToolsToolStripMenuItem
 		'
@@ -416,7 +429,7 @@
 		'
 		Me.PrintToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TotalCompanyReportToolStripMenuItem, Me.SelectedCompanyReportToolStripMenuItem})
 		Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
-		Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+		Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(99, 22)
 		Me.PrintToolStripMenuItem.Text = "Print"
 		'
 		'TotalCompanyReportToolStripMenuItem
@@ -440,19 +453,6 @@
 		'
 		Me.LayoutViewColumn1.LayoutViewField = Nothing
 		Me.LayoutViewColumn1.Name = "LayoutViewColumn1"
-		'
-		'ViewToolStripMenuItem
-		'
-		Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SummaryChartToolStripMenuItem})
-		Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
-		Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-		Me.ViewToolStripMenuItem.Text = "View"
-		'
-		'SummaryChartToolStripMenuItem
-		'
-		Me.SummaryChartToolStripMenuItem.Name = "SummaryChartToolStripMenuItem"
-		Me.SummaryChartToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
-		Me.SummaryChartToolStripMenuItem.Text = "Summary Chart"
 		'
 		'Form1
 		'

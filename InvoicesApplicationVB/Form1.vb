@@ -267,4 +267,9 @@ Partial Public Class Form1
 	End Sub
 
 	' Display summary chart of all invoices from each company.
+
+	Private Sub SummaryChartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SummaryChartToolStripMenuItem.Click
+		Dim chart As AnalysisChart = New AnalysisChart()
+		chart.Show()
+	End Sub
 End Class

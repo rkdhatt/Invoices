@@ -113,6 +113,12 @@
     <Compile Include="addCompany.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AnalysisChart.Designer.vb">
+      <DependentUpon>AnalysisChart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AnalysisChart.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CompanyReport.Designer.vb">
       <DependentUpon>CompanyReport.vb</DependentUpon>
     </Compile>
@@ -138,6 +144,9 @@
     <Compile Include="My Project\AssemblyInfo.vb" />
     <EmbeddedResource Include="addCompany.resx">
       <DependentUpon>addCompany.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnalysisChart.resx">
+      <DependentUpon>AnalysisChart.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CompanyReport.resx">
       <DependentUpon>CompanyReport.vb</DependentUpon>
