@@ -12,3 +12,6 @@ E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\Inv
 E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.exe.licenses
 E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.exe
 E:\Programmers - Raman\InvoicesApplicationVB\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.pdb
+E:\Programmers - Raman\InvoicesApplicationVB_Raman\InvoicesApplicationVB\bin\Debug\InvoicesApplicationVB.exe.config
+E:\Programmers - Raman\InvoicesApplicationVB_Raman\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.exe
+E:\Programmers - Raman\InvoicesApplicationVB_Raman\InvoicesApplicationVB\obj\Debug\InvoicesApplicationVB.pdb
