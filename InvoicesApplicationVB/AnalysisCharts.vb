@@ -118,13 +118,9 @@ Public Class AnalysisCharts
 	Private Sub AnalysisChart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Dim numInvoices As Integer
 		Dim companyName As String
-		Dim companyID As Integer
 		Dim cost As Double = 0
-		Dim exists As Boolean
-		'Dim cmd As SqlCommand
-		'Dim costCmd As SqlCommand
-		Dim point As SeriesPoint
 
+		'' -- BAR CHART --
 		'Create a series for invoice counts bar chart.
 		barChartControl.Series.Clear()
 		barChartSeries = New Series("Invoices", ViewType.Bar)
@@ -150,6 +146,8 @@ Public Class AnalysisCharts
 		barChartControl.Titles.Add(barChartTitle)
 		barChartControl.Series.Add(barChartSeries)
 
+
+		'' -- PIE CHART --
 		'Pie chart version - clone of bar graph
 		pieChartControl.Series.Clear()
 		pieChartSeries = CType(barChartSeries.Clone(), Series)
@@ -163,6 +161,7 @@ Public Class AnalysisCharts
 		pieChartControl.Titles.Add(pieChartTitle)
 
 
+		'' -- LINE GRAPH --
 		'Create series for invoice cost line chart.
 		costChartControl.Series.Clear()
 
@@ -170,18 +169,19 @@ Public Class AnalysisCharts
 		For Each companyResult As DataRow In tableTotalCosts.Rows
 			cost = (CType(companyResult("total_cost"), Integer))
 			companyName = companyResult("name").ToString()
+
 			costChartSeries = New Series(companyName, ViewType.Line)
 			costChartSeries.Points.Add(New SeriesPoint(companyName, cost))
 			CType(costChartSeries.View, LineSeriesView).MarkerVisibility = DevExpress.Utils.DefaultBoolean.True
+
 			costChartControl.Series.Add(costChartSeries)
 		Next
 
 		' Customize line graph
-		Dim lineGraphView As LineSeriesView = CType(lineChartSeries.View, LineSeriesView)
-		lineGraphView.ColorEach = True
+		Dim lsView As LineSeriesView = CType(lineChartSeries.View, LineSeriesView)
+		lsView.ColorEach = True
 
-		Dim costChartTitle As New ChartTitle()
-		costChartTitle.Text = "Total Cost of Invoices Per Company"
+		Dim costChartTitle As New ChartTitle() With {.Text = "Total Cost of Invoices Per Company"}
 		costChartControl.Titles.Add(costChartTitle)
 
 
