@@ -151,10 +151,10 @@ Partial Class AnalysisCharts
 		Me.CommandBarGalleryDropDown8 = New DevExpress.XtraBars.Commands.CommandBarGalleryDropDown(Me.components)
 		Me.ChartBarController1 = New DevExpress.XtraCharts.UI.ChartBarController()
 		Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
-		Me.XtraTabPage1 = New DevExpress.XtraTab.XtraTabPage()
-		Me.XtraTabPage2 = New DevExpress.XtraTab.XtraTabPage()
+		Me.BarGraphTab = New DevExpress.XtraTab.XtraTabPage()
+		Me.PieGraphTab = New DevExpress.XtraTab.XtraTabPage()
 		Me.pieChartControl = New DevExpress.XtraCharts.ChartControl()
-		Me.XtraTabPage3 = New DevExpress.XtraTab.XtraTabPage()
+		Me.CostLineGraphTab = New DevExpress.XtraTab.XtraTabPage()
 		Me.costChartControl = New DevExpress.XtraCharts.ChartControl()
 		CType(Me.barChartControl, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(XyDiagram1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -171,14 +171,14 @@ Partial Class AnalysisCharts
 		CType(Me.ChartBarController1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.XtraTabControl1.SuspendLayout()
-		Me.XtraTabPage1.SuspendLayout()
-		Me.XtraTabPage2.SuspendLayout()
+		Me.BarGraphTab.SuspendLayout()
+		Me.PieGraphTab.SuspendLayout()
 		CType(Me.pieChartControl, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(SimpleDiagram3D1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Series3, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Pie3DSeriesView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Pie3DSeriesView2, System.ComponentModel.ISupportInitialize).BeginInit()
-		Me.XtraTabPage3.SuspendLayout()
+		Me.CostLineGraphTab.SuspendLayout()
 		CType(Me.costChartControl, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(XyDiagram2, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Series4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -200,7 +200,7 @@ Partial Class AnalysisCharts
 		Series1.Name = "Series 1"
 		Series2.Name = "Series 2"
 		Me.barChartControl.SeriesSerializable = New DevExpress.XtraCharts.Series() {Series1, Series2}
-		Me.barChartControl.Size = New System.Drawing.Size(594, 285)
+		Me.barChartControl.Size = New System.Drawing.Size(614, 308)
 		Me.barChartControl.TabIndex = 1
 		'
 		'CommandBarGalleryDropDown1
@@ -757,26 +757,27 @@ Partial Class AnalysisCharts
 		'
 		'XtraTabControl1
 		'
-		Me.XtraTabControl1.Location = New System.Drawing.Point(12, 12)
+		Me.XtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.XtraTabControl1.Location = New System.Drawing.Point(0, 0)
 		Me.XtraTabControl1.Name = "XtraTabControl1"
-		Me.XtraTabControl1.SelectedTabPage = Me.XtraTabPage1
-		Me.XtraTabControl1.Size = New System.Drawing.Size(600, 313)
+		Me.XtraTabControl1.SelectedTabPage = Me.BarGraphTab
+		Me.XtraTabControl1.Size = New System.Drawing.Size(620, 336)
 		Me.XtraTabControl1.TabIndex = 6
-		Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage1, Me.XtraTabPage2, Me.XtraTabPage3})
+		Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.BarGraphTab, Me.PieGraphTab, Me.CostLineGraphTab})
 		'
-		'XtraTabPage1
+		'BarGraphTab
 		'
-		Me.XtraTabPage1.Controls.Add(Me.barChartControl)
-		Me.XtraTabPage1.Name = "XtraTabPage1"
-		Me.XtraTabPage1.Size = New System.Drawing.Size(594, 285)
-		Me.XtraTabPage1.Text = "Summary (Bar)"
+		Me.BarGraphTab.Controls.Add(Me.barChartControl)
+		Me.BarGraphTab.Name = "BarGraphTab"
+		Me.BarGraphTab.Size = New System.Drawing.Size(614, 308)
+		Me.BarGraphTab.Text = "Summary (Bar)"
 		'
-		'XtraTabPage2
+		'PieGraphTab
 		'
-		Me.XtraTabPage2.Controls.Add(Me.pieChartControl)
-		Me.XtraTabPage2.Name = "XtraTabPage2"
-		Me.XtraTabPage2.Size = New System.Drawing.Size(594, 285)
-		Me.XtraTabPage2.Text = "Summary (Pie)"
+		Me.PieGraphTab.Controls.Add(Me.pieChartControl)
+		Me.PieGraphTab.Name = "PieGraphTab"
+		Me.PieGraphTab.Size = New System.Drawing.Size(614, 308)
+		Me.PieGraphTab.Text = "Summary (Pie)"
 		'
 		'pieChartControl
 		'
@@ -793,15 +794,15 @@ Partial Class AnalysisCharts
 		Pie3DSeriesView2.SizeAsPercentage = 100.0R
 		Pie3DSeriesView2.SweepDirection = DevExpress.XtraCharts.PieSweepDirection.Counterclockwise
 		Me.pieChartControl.SeriesTemplate.View = Pie3DSeriesView2
-		Me.pieChartControl.Size = New System.Drawing.Size(594, 285)
+		Me.pieChartControl.Size = New System.Drawing.Size(614, 308)
 		Me.pieChartControl.TabIndex = 0
 		'
-		'XtraTabPage3
+		'CostLineGraphTab
 		'
-		Me.XtraTabPage3.Controls.Add(Me.costChartControl)
-		Me.XtraTabPage3.Name = "XtraTabPage3"
-		Me.XtraTabPage3.Size = New System.Drawing.Size(594, 285)
-		Me.XtraTabPage3.Text = "Cost"
+		Me.CostLineGraphTab.Controls.Add(Me.costChartControl)
+		Me.CostLineGraphTab.Name = "CostLineGraphTab"
+		Me.CostLineGraphTab.Size = New System.Drawing.Size(614, 308)
+		Me.CostLineGraphTab.Text = "Cost"
 		'
 		'costChartControl
 		'
@@ -819,16 +820,16 @@ Partial Class AnalysisCharts
 		Series5.View = LineSeriesView2
 		Me.costChartControl.SeriesSerializable = New DevExpress.XtraCharts.Series() {Series4, Series5}
 		Me.costChartControl.SeriesTemplate.View = LineSeriesView3
-		Me.costChartControl.Size = New System.Drawing.Size(594, 285)
+		Me.costChartControl.Size = New System.Drawing.Size(614, 308)
 		Me.costChartControl.TabIndex = 0
 		'
-		'SummaryAnalysisChart
+		'AnalysisCharts
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(620, 336)
 		Me.Controls.Add(Me.XtraTabControl1)
-		Me.Name = "SummaryAnalysisChart"
+		Me.Name = "AnalysisCharts"
 		Me.Text = "Summary Analysis"
 		CType(XyDiagram1, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Series1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -845,14 +846,14 @@ Partial Class AnalysisCharts
 		CType(Me.ChartBarController1, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.XtraTabControl1.ResumeLayout(False)
-		Me.XtraTabPage1.ResumeLayout(False)
-		Me.XtraTabPage2.ResumeLayout(False)
+		Me.BarGraphTab.ResumeLayout(False)
+		Me.PieGraphTab.ResumeLayout(False)
 		CType(SimpleDiagram3D1, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Pie3DSeriesView1, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Series3, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Pie3DSeriesView2, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.pieChartControl, System.ComponentModel.ISupportInitialize).EndInit()
-		Me.XtraTabPage3.ResumeLayout(False)
+		Me.CostLineGraphTab.ResumeLayout(False)
 		CType(XyDiagram2, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(LineSeriesView1, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Series4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -874,9 +875,9 @@ Partial Class AnalysisCharts
 	Friend WithEvents CommandBarGalleryDropDown8 As DevExpress.XtraBars.Commands.CommandBarGalleryDropDown
 	Friend WithEvents ChartBarController1 As DevExpress.XtraCharts.UI.ChartBarController
 	Friend WithEvents XtraTabControl1 As DevExpress.XtraTab.XtraTabControl
-	Friend WithEvents XtraTabPage1 As DevExpress.XtraTab.XtraTabPage
-	Friend WithEvents XtraTabPage2 As DevExpress.XtraTab.XtraTabPage
+	Friend WithEvents BarGraphTab As DevExpress.XtraTab.XtraTabPage
+	Friend WithEvents PieGraphTab As DevExpress.XtraTab.XtraTabPage
 	Friend WithEvents pieChartControl As DevExpress.XtraCharts.ChartControl
-	Friend WithEvents XtraTabPage3 As DevExpress.XtraTab.XtraTabPage
+	Friend WithEvents CostLineGraphTab As DevExpress.XtraTab.XtraTabPage
 	Friend WithEvents costChartControl As DevExpress.XtraCharts.ChartControl
 End Class

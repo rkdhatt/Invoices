@@ -12,14 +12,15 @@ Public Class AnalysisCharts
 	Private WithEvents dbInvoices As DBDataSet
 	Private WithEvents dbDetails As DBDataSet
 	Private WithEvents dbAddresses As DBDataSet
-
 	Private WithEvents dbNumInvoices As DBDataSet
+	Private WithEvents dbTotalCosts As DBDataSet
 
 	Private tableCompanies As DataTable
 	Private tableInvoices As DataTable
 	Private tableDetails As DataTable
 	Private tableAddresses As DataTable
 	Private tableNumInvoices As DataTable
+	Private tableTotalCosts As DataTable
 
 	Private WithEvents dsMaster As DataSet
 
@@ -46,13 +47,15 @@ Public Class AnalysisCharts
 		dbInvoices = New DBDataSet()
 		dbDetails = New DBDataSet()
 		dbAddresses = New DBDataSet()
-		dbNumInvoices = New DBDataSet()	' required for bar and pie graph (summary)
+		dbNumInvoices = New DBDataSet()	' required for bar and pie graph (summary analysis)
+		dbTotalCosts = New DBDataSet() ' required for line graph (summary analysis)
 
 		tableCompanies = New DataTable("tableCompanies")
 		tableInvoices = New DataTable("tableInvoices")
 		tableDetails = New DataTable("tableDetails")
 		tableAddresses = New DataTable("tableAddresses")
 		tableNumInvoices = New DataTable("tableNumInvoices")
+		tableTotalCosts = New DataTable("tableTotalCosts")
 
 		'Set procedures.
 		dbCompanies.FetchStoredProcedure = "fetch_companies"
@@ -76,12 +79,14 @@ Public Class AnalysisCharts
 		dbDetails.DeleteStoredProcedure = "delete_detail"
 
 		dbNumInvoices.FetchStoredProcedure = "fetch_num_invoices"
+		dbTotalCosts.FetchStoredProcedure = "fetch_total_costs"
 
 		dbCompanies.FetchDataTable(tableCompanies)
 		dbInvoices.FetchDataTable(tableInvoices)
 		dbDetails.FetchDataTable(tableDetails)
 		dbAddresses.FetchDataTable(tableAddresses)
 		dbNumInvoices.FetchDataTable(tableNumInvoices)
+		dbTotalCosts.FetchDataTable(tableTotalCosts)
 
 		'Set DataSet for relations.
 		dsMaster = New DataSet()
@@ -113,8 +118,8 @@ Public Class AnalysisCharts
 	Private Sub AnalysisChart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Dim numInvoices As Integer
 		Dim companyName As String
-		'Dim companyID As Integer
-		'Dim cost As Double = 0
+		Dim companyID As Integer
+		Dim cost As Double = 0
 		Dim exists As Boolean
 		'Dim cmd As SqlCommand
 		'Dim costCmd As SqlCommand
@@ -160,42 +165,25 @@ Public Class AnalysisCharts
 
 		'Create series for invoice cost line chart.
 		costChartControl.Series.Clear()
-		Dim cost As Integer = 0
 
-		For Each _company As DataRow In tableCompanies.Rows
-			companyName = _company("name").ToString()
+		'Obtain total costs per companyID
+		For Each companyResult As DataRow In tableTotalCosts.Rows
+			cost = (CType(companyResult("total_cost"), Integer))
+			companyName = companyResult("name").ToString()
 			costChartSeries = New Series(companyName, ViewType.Line)
+			costChartSeries.Points.Add(New SeriesPoint(companyName, cost))
 			CType(costChartSeries.View, LineSeriesView).MarkerVisibility = DevExpress.Utils.DefaultBoolean.True
-
-			For Each _invoice As DataRow In tableInvoices.Rows
-				If (_company("company_id").Equals(_invoice("company_id"))) Then
-
-					For Each _detail As DataRow In tableDetails.Rows
-						If (_invoice("invoice_id").Equals(_detail("invoice_id"))) Then
-							cost += CInt(_detail("cost"))
-							point = New SeriesPoint(_invoice("date"), cost)
-							exists = False
-							For Each pointCheck As SeriesPoint In costChartSeries.Points
-								If pointCheck.DateTimeArgument.Equals(point.DateTimeArgument) Then
-									pointCheck.Values(0) = cost
-									exists = True
-								End If
-							Next
-							If Not exists Then
-								costChartSeries.Points.Add(point)
-							End If
-						End If
-					Next
-				Else
-					cost = 0
-				End If
-			Next
 			costChartControl.Series.Add(costChartSeries)
 		Next
+
+		' Customize line graph
+		Dim lineGraphView As LineSeriesView = CType(lineChartSeries.View, LineSeriesView)
+		lineGraphView.ColorEach = True
+
 		Dim costChartTitle As New ChartTitle()
-		costChartTitle.Text = "Total Cost of Invoices Per Company Over Time"
-		costChartTitle.Font = New Font("Tahoma", 14, FontStyle.Bold)
+		costChartTitle.Text = "Total Cost of Invoices Per Company"
 		costChartControl.Titles.Add(costChartTitle)
+
 
 	End Sub
 End Class
