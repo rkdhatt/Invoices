@@ -55,7 +55,7 @@ Partial Public Class CompanyReport
 		'
 		'totalCostLabel
 		'
-		Me.totalCostLabel.BackColor = System.Drawing.Color.Cornsilk
+		Me.totalCostLabel.BackColor = System.Drawing.Color.PowderBlue
 		Me.totalCostLabel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.totalCostLabel.LocationFloat = New DevExpress.Utils.PointFloat(325.0!, 0.0!)
 		Me.totalCostLabel.Name = "totalCostLabel"
@@ -67,7 +67,7 @@ Partial Public Class CompanyReport
 		'
 		'descriptionLabel
 		'
-		Me.descriptionLabel.BackColor = System.Drawing.Color.Cornsilk
+		Me.descriptionLabel.BackColor = System.Drawing.Color.PowderBlue
 		Me.descriptionLabel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.descriptionLabel.LocationFloat = New DevExpress.Utils.PointFloat(91.66667!, 0.0!)
 		Me.descriptionLabel.Name = "descriptionLabel"
@@ -99,7 +99,7 @@ Partial Public Class CompanyReport
 		'
 		'totalCostTitleLabel
 		'
-		Me.totalCostTitleLabel.BackColor = System.Drawing.Color.DarkRed
+		Me.totalCostTitleLabel.BackColor = System.Drawing.Color.LightSeaGreen
 		Me.totalCostTitleLabel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.totalCostTitleLabel.ForeColor = System.Drawing.Color.White
 		Me.totalCostTitleLabel.LocationFloat = New DevExpress.Utils.PointFloat(325.0!, 46.79165!)
@@ -113,7 +113,7 @@ Partial Public Class CompanyReport
 		'
 		'descriptionTitleLabel
 		'
-		Me.descriptionTitleLabel.BackColor = System.Drawing.Color.DarkRed
+		Me.descriptionTitleLabel.BackColor = System.Drawing.Color.LightSeaGreen
 		Me.descriptionTitleLabel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.descriptionTitleLabel.ForeColor = System.Drawing.Color.White
 		Me.descriptionTitleLabel.LocationFloat = New DevExpress.Utils.PointFloat(91.66666!, 46.79165!)
@@ -127,7 +127,7 @@ Partial Public Class CompanyReport
 		'
 		'termsLabel
 		'
-		Me.termsLabel.BackColor = System.Drawing.Color.DarkRed
+		Me.termsLabel.BackColor = System.Drawing.Color.LightSeaGreen
 		Me.termsLabel.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.termsLabel.ForeColor = System.Drawing.Color.White
 		Me.termsLabel.LocationFloat = New DevExpress.Utils.PointFloat(300.0!, 10.00001!)
@@ -141,7 +141,7 @@ Partial Public Class CompanyReport
 		'
 		'invoice_dateLabel
 		'
-		Me.invoice_dateLabel.BackColor = System.Drawing.Color.DarkRed
+		Me.invoice_dateLabel.BackColor = System.Drawing.Color.LightSeaGreen
 		Me.invoice_dateLabel.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.invoice_dateLabel.ForeColor = System.Drawing.Color.White
 		Me.invoice_dateLabel.LocationFloat = New DevExpress.Utils.PointFloat(57.29167!, 10.00001!)

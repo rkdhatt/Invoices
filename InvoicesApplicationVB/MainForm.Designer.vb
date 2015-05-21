@@ -277,8 +277,8 @@
 		Me.CompanyGridView.Appearance.GroupRow.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.CompanyGridView.Appearance.GroupRow.Options.UseBackColor = True
 		Me.CompanyGridView.Appearance.GroupRow.Options.UseFont = True
-		Me.CompanyGridView.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-		Me.CompanyGridView.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+		Me.CompanyGridView.Appearance.HeaderPanel.BackColor = System.Drawing.Color.White
+		Me.CompanyGridView.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.White
 		Me.CompanyGridView.Appearance.HeaderPanel.Options.UseBackColor = True
 		Me.CompanyGridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D
 		Me.CompanyGridView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.companyNameCol, Me.companyIDCol, Me.deleteCompanyBtnColumn})

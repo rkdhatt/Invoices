@@ -48,7 +48,7 @@ Partial Public Class MainReport
 		'
 		'invoiceDateLabel
 		'
-		Me.invoiceDateLabel.BackColor = System.Drawing.Color.Cornsilk
+		Me.invoiceDateLabel.BackColor = System.Drawing.Color.MistyRose
 		Me.invoiceDateLabel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.invoiceDateLabel.LocationFloat = New DevExpress.Utils.PointFloat(58.33333!, 0.0!)
 		Me.invoiceDateLabel.Name = "invoiceDateLabel"
@@ -60,7 +60,7 @@ Partial Public Class MainReport
 		'
 		'invoiceTermsLabel
 		'
-		Me.invoiceTermsLabel.BackColor = System.Drawing.Color.Cornsilk
+		Me.invoiceTermsLabel.BackColor = System.Drawing.Color.MistyRose
 		Me.invoiceTermsLabel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.invoiceTermsLabel.LocationFloat = New DevExpress.Utils.PointFloat(300.0!, 0.0!)
 		Me.invoiceTermsLabel.Name = "invoiceTermsLabel"
@@ -86,7 +86,7 @@ Partial Public Class MainReport
 		'
 		'companyNameMainLabel
 		'
-		Me.companyNameMainLabel.BackColor = System.Drawing.Color.DarkRed
+		Me.companyNameMainLabel.BackColor = System.Drawing.Color.Tomato
 		Me.companyNameMainLabel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.companyNameMainLabel.ForeColor = System.Drawing.Color.White
 		Me.companyNameMainLabel.LocationFloat = New DevExpress.Utils.PointFloat(58.33333!, 10.00001!)
@@ -105,7 +105,7 @@ Partial Public Class MainReport
 		'
 		'companyIDLabel
 		'
-		Me.companyIDLabel.BackColor = System.Drawing.Color.DarkRed
+		Me.companyIDLabel.BackColor = System.Drawing.Color.Tomato
 		Me.companyIDLabel.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.companyIDLabel.ForeColor = System.Drawing.Color.White
 		Me.companyIDLabel.LocationFloat = New DevExpress.Utils.PointFloat(596.875!, 10.00001!)
