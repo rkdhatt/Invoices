@@ -1,10 +1,6 @@
 ﻿Imports CemDB
 
-Public Class addCompanyForm
-
-	Private Sub addCompanyDialogBox_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-	End Sub
+Public Class AddCompanyForm
 
 	Private Sub addCompanyButton_Click(sender As Object, e As EventArgs) Handles addCompanyButton.Click
 		If (addCompanyTextBox.TextLength() = 0) Then
@@ -20,10 +16,9 @@ Public Class addCompanyForm
 		DBControl.ExecuteCommand(cmd)
 		Me.DialogResult = DialogResult.OK
 		Return
-
 	End Sub
 
-	Private Sub cancelAddCompanyButton_Click(sender As Object, e As EventArgs) Handles cancelAddCompanyButton.Click
+	Private Sub cancelAddButton_Click(sender As Object, e As EventArgs) Handles cancelAddButton.Click
 		Me.Close()
 	End Sub
 End Class

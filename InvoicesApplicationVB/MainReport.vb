@@ -14,6 +14,7 @@ Public Class MainReport
 		tableMainReportInfo = New DataTable
 		dbMainReport.FetchStoredProcedure = "fetch_main_report"
 		dbMainReport.FetchDataTable(tableMainReportInfo)
+
 		DataSource = tableMainReportInfo
 
 	End Sub

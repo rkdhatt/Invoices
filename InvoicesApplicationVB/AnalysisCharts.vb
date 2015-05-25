@@ -186,4 +186,5 @@ Public Class AnalysisCharts
 
 
 	End Sub
+
 End Class

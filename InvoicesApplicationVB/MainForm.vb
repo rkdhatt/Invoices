@@ -1,6 +1,8 @@
 ﻿Imports System.ComponentModel
 Imports System.Text
 Imports CemDB
+Imports DevExpress.XtraEditors
+Imports DevExpress.XtraGrid.Views.Grid
 
 Partial Public Class MainForm
 	Inherits DevExpress.XtraEditors.XtraForm
@@ -118,59 +120,64 @@ Partial Public Class MainForm
 
 	' Delete selected company 
 	Private Sub DeleteCompanyButton_Click(sender As Object, e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles delete_company.ButtonClick, button_delete.ButtonClick
-		Dim result = MessageBox.Show("Are you sure?", "Delete Company", MessageBoxButtons.YesNo)
+		Dim result = MessageBox.Show("Are you sure you wnat to delete this company?", "Delete Company", MessageBoxButtons.YesNo)
 
 		If (result = MsgBoxResult.Yes) Then
 			Dim cmd As System.Data.SqlClient.SqlCommand = DBControl.GetStoredProcCmd("delete_company")
 			cmd.Parameters("@company_id").Value = CompanyGridView.GetFocusedRowCellValue("company_id") ' field value
 			DBControl.ExecuteCommand(cmd)
 			dbCompanies.FetchDataSet()
-
-		ElseIf (result = MsgBoxResult.No) Then
-
 		End If
 	End Sub
 
 
 	' Delete selected invoice 
 	Private Sub DeleteInvoiceButton_Click(sender As Object, e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles delete_invoice_button.ButtonClick
-		Dim result = MessageBox.Show("Are you sure?", "Delete Invoice", MessageBoxButtons.YesNo)
+		Dim result = MessageBox.Show("Are you sure you want to delete this invoice?", "Delete Invoice", MessageBoxButtons.YesNo)
 
 		If (result = MsgBoxResult.Yes) Then
 			Dim cmd As System.Data.SqlClient.SqlCommand = DBControl.GetStoredProcCmd("delete_invoice")
 			cmd.Parameters("@invoice_id").Value = InvoiceGridView.GetFocusedRowCellValue("invoice_id")
 			DBControl.ExecuteCommand(cmd)
 			dbCompanies.FetchDataSet()
-
-		ElseIf (result = MsgBoxResult.No) Then
-
 		End If
 	End Sub
 
 
 	' Delete selected address 
 	Private Sub DeleteAddressButton_Click(sender As Object, e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles delete_address_button.ButtonClick
-		Dim result = MessageBox.Show("Are you sure?", "Delete Address", MessageBoxButtons.YesNo)
+		Dim result = MessageBox.Show("Are you sure you want to delete this address?", "Delete Address", MessageBoxButtons.YesNo)
 
 		If (result = MsgBoxResult.Yes) Then
 			Dim cmd As System.Data.SqlClient.SqlCommand = DBControl.GetStoredProcCmd("delete_address")
-			System.Diagnostics.Debug.WriteLine(String.Format("ROW VLAUE: {0}", AddressGridView.GetFocusedRowCellValue("address_id")))
+			'System.Diagnostics.Debug.WriteLine(String.Format("ROW VALUE: {0}", AddressGridView.GetFocusedRowCellValue("address_id")))
 			cmd.Parameters("@address_id").Value = AddressGridView.GetFocusedRowCellValue("address_id") ' field value
 			DBControl.ExecuteCommand(cmd)
 			dbCompanies.FetchDataSet()
-		ElseIf (result = MsgBoxResult.No) Then
 		End If
 	End Sub
 
+	Private Sub DeleteDetailButton_Click(sender As Object, e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles delete_detail_button.ButtonClick
+		Dim result = MessageBox.Show("Are you sure you want to delete this invoice detail?", "Delete Detail", MessageBoxButtons.YesNo)
+
+		If (result = MsgBoxResult.Yes) Then
+			Dim cmd As System.Data.SqlClient.SqlCommand = DBControl.GetStoredProcCmd("delete_detail")
+			cmd.Parameters("@detail_id").Value = DetailGridView.GetFocusedRowCellValue("detail_id")	' field value
+			DBControl.ExecuteCommand(cmd)
+			dbCompanies.FetchDataSet()
+		End If
+	End Sub
 
 	' Add a new company to database using add company dialog
 	Private Sub AddCompanyMenuItem_Click(sender As Object, e As EventArgs) Handles AddCompanyMenuItem.Click
-		Dim addCompanyForm = New addCompanyForm
+		Dim addCompanyForm = New AddCompanyForm()
 		Dim result As DialogResult = addCompanyForm.ShowDialog()
 		If result = Windows.Forms.DialogResult.OK Then
 			dbCompanies.FetchDataSet() '** not table.
 		End If
 	End Sub
+
+
 
 
 	' After fetching, ensure the up-to-date datatables are relations are added and declared (master-detail relationship)
@@ -203,11 +210,6 @@ Partial Public Class MainForm
 	End Sub
 
 
-	Private Sub dbCompanies_AfterInsert(sender As Object, cmd As SqlClient.SqlCommand, row As DataRow, cancel As Cancel) Handles dbCompanies.AfterInsert
-		dbCompanies.FetchDataSet()
-	End Sub
-
-
 	' Before fetching datatables, ensure previous relations and tables are cleared
 	Private Sub dbCompanies_BeforeFetch(sender As Object, cmd As SqlClient.SqlCommand, cancel As Cancel) Handles dbCompanies.BeforeFetch
 		If dsCompanies.Relations.Count > 0 Then
@@ -218,28 +220,14 @@ Partial Public Class MainForm
 		dsCompanies.Tables.Clear()
 	End Sub
 
-
-	Private Sub dbInvoices_AfterInsert(sender As Object, cmd As SqlClient.SqlCommand, row As DataRow, cancel As Cancel) Handles dbInvoices.AfterInsert
+	' Fetch Data Set after inserting new data
+	Private Sub afterInsert(sender As Object, cmd As SqlClient.SqlCommand, row As DataRow, cancel As Cancel) Handles dbCompanies.AfterInsert, dbInvoices.AfterInsert, dbAddresses.AfterInsert, dbInvoiceDetails.AfterInsert
 		dbCompanies.FetchDataSet()
+		InvoiceGridView.ExpandAllGroups()
+
 	End Sub
 
-
-	Private Sub dbInvoices_BeforeUpdate(sender As Object, cmd As SqlClient.SqlCommand, row As DataRow, cancel As Cancel) Handles dbInvoices.BeforeUpdate
-		' Not sure why it's not printing the column value but the updating works...
-		System.Console.WriteLine("COLUMN VALUE: {0}", InvoiceGridView.GetFocusedRowCellValue("invoice_id"))
-	End Sub
-
-
-	Private Sub dbAddresses_AfterInsert(sender As Object, cmd As SqlClient.SqlCommand, row As DataRow, cancel As Cancel) Handles dbAddresses.AfterInsert
-		dbCompanies.FetchDataSet()
-	End Sub
-
-
-	Private Sub dbInvoiceDetails_AfterInsert(sender As Object, cmd As SqlClient.SqlCommand, row As DataRow, cancel As Cancel) Handles dbInvoiceDetails.AfterInsert
-		dbCompanies.FetchDataSet()
-	End Sub
-
-
+	' Generate main report
 	Private Sub TotalCompanyReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TotalCompanyReportToolStripMenuItem.Click
 		rpt = New MainReport()
 		Dim Tool As DevExpress.XtraReports.UI.ReportPrintTool = New DevExpress.XtraReports.UI.ReportPrintTool(rpt)
@@ -260,20 +248,35 @@ Partial Public Class MainForm
 		End If
 		Try
 			Tool.ShowPreview()
-		Catch ex As Exception
+		Catch ex As NullReferenceException
 			System.Console.WriteLine("Do nothing since tool can't access report anymore (disposed = true)")
+
 		End Try
 
 	End Sub
 
 	' Display summary chart of all invoices from each company.
-
 	Private Sub SummaryChartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SummaryChartToolStripMenuItem.Click
 		Dim chart As AnalysisCharts = New AnalysisCharts()
 		chart.Show()
 	End Sub
 
 	Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
-		MsgBox("Author: Raman Dhatt" & vbCrLf & "Create Date: 2015", MsgBoxStyle.OkOnly, "About")
+		XtraMessageBox.Show("Author: Raman Dhatt" & vbCrLf & "Create Date: 2015")
 	End Sub
+
+	'Prevent collapsing
+	Private Sub InvoiceGridView_GroupRowCollapsing(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowAllowEventArgs) Handles InvoiceGridView.GroupRowCollapsing
+		e.Allow = False
+	End Sub
+
+	Private Sub CompanyGridView_GroupRowCollapsing(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowAllowEventArgs) Handles CompanyGridView.GroupRowCollapsing
+		e.Allow = False
+	End Sub
+
+	Private Sub CompanyGridView_MasterRowCollapsing(sender As Object, e As DevExpress.XtraGrid.Views.Grid.MasterRowCanExpandEventArgs) Handles CompanyGridView.MasterRowCollapsing
+		e.Allow = False
+	End Sub
+
+
 End Class

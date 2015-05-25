@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "InvoicesApplicationVB", "InvoicesApplicationVB\InvoicesApplicationVB.vbproj", "{6220869D-E5D2-4040-9630-76AD2DCB5D40}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "InvoicesApplicationVB_Raman", "InvoicesApplicationVB\InvoicesApplicationVB_Raman.vbproj", "{6220869D-E5D2-4040-9630-76AD2DCB5D40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

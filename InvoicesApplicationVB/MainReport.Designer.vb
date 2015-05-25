@@ -159,9 +159,11 @@ Partial Public Class MainReport
 		Me.CompanyTotalReportLabel.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 0.0!)
 		Me.CompanyTotalReportLabel.Name = "CompanyTotalReportLabel"
 		Me.CompanyTotalReportLabel.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-		Me.CompanyTotalReportLabel.SizeF = New System.Drawing.SizeF(253.125!, 23.0!)
+		Me.CompanyTotalReportLabel.SizeF = New System.Drawing.SizeF(650.0!, 23.0!)
 		Me.CompanyTotalReportLabel.StylePriority.UseFont = False
+		Me.CompanyTotalReportLabel.StylePriority.UseTextAlignment = False
 		Me.CompanyTotalReportLabel.Text = "Main Report"
+		Me.CompanyTotalReportLabel.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
 		'
 		'PageHeader
 		'
