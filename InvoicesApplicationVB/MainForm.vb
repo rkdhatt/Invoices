@@ -3,6 +3,7 @@ Imports System.Text
 Imports CemDB
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraGrid.Views.Grid
+Imports DevExpress.XtraGrid.Views.Base
 
 Partial Public Class MainForm
 	Inherits DevExpress.XtraEditors.XtraForm
@@ -221,11 +222,13 @@ Partial Public Class MainForm
 	End Sub
 
 	' Fetch Data Set after inserting new data
+	' Problem: causes automatic collapse when adding new data.
 	Private Sub afterInsert(sender As Object, cmd As SqlClient.SqlCommand, row As DataRow, cancel As Cancel) Handles dbCompanies.AfterInsert, dbInvoices.AfterInsert, dbAddresses.AfterInsert, dbInvoiceDetails.AfterInsert
 		dbCompanies.FetchDataSet()
-		InvoiceGridView.ExpandAllGroups()
-
+		RecursExpand(CompanyGridView, CompanyGridView.GetRowHandle(tableCompanies.Rows.IndexOf(row)))
 	End Sub
+
+
 
 	' Generate main report
 	Private Sub TotalCompanyReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TotalCompanyReportToolStripMenuItem.Click
@@ -265,18 +268,38 @@ Partial Public Class MainForm
 		XtraMessageBox.Show("Author: Raman Dhatt" & vbCrLf & "Create Date: 2015")
 	End Sub
 
-	'Prevent collapsing
-	Private Sub InvoiceGridView_GroupRowCollapsing(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowAllowEventArgs) Handles InvoiceGridView.GroupRowCollapsing
-		e.Allow = False
-	End Sub
 
-	Private Sub CompanyGridView_GroupRowCollapsing(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowAllowEventArgs) Handles CompanyGridView.GroupRowCollapsing
-		e.Allow = False
-	End Sub
 
-	Private Sub CompanyGridView_MasterRowCollapsing(sender As Object, e As DevExpress.XtraGrid.Views.Grid.MasterRowCanExpandEventArgs) Handles CompanyGridView.MasterRowCollapsing
-		e.Allow = False
-	End Sub
 
+
+	' Recursively expand the nested grid views so they do not automatically collapse.
+	Public Sub RecursExpand(ByVal masterView As GridView, ByVal masterRowHandle As Integer)
+		' Prevent excessive visual updates. 
+		masterView.BeginUpdate()
+		Try
+			' Get the number of master-detail relationships. 
+			Dim relationCount As Integer = masterView.GetRelationCount(masterRowHandle)
+			' Iterate through relationships. 
+			Dim index As Integer
+			For index = relationCount - 1 To 0 Step -1
+				' Open the detail View for the current relationship. 
+				masterView.ExpandMasterRow(masterRowHandle, index)
+				' Get the detail View. 
+				Dim childView As ColumnView = masterView.GetDetailView(masterRowHandle, index)
+				If TypeOf childView Is GridView Then
+					' Get the number of rows in the detail View. 
+					Dim childRowCount As Integer = CType(childView, GridView).DataRowCount
+					' Expand child rows recursively. 
+					Dim handle As Integer
+					For handle = 0 To childRowCount - 1
+						RecursExpand(childView, handle)
+					Next
+				End If
+			Next
+		Finally
+			' Enable visual updates. 
+			masterView.EndUpdate()
+		End Try
+	End Sub
 
 End Class

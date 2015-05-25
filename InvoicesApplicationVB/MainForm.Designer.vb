@@ -148,7 +148,7 @@
 		Me.InvoiceGridView.OptionsDetail.AllowExpandEmptyDetails = True
 		Me.InvoiceGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top
 		Me.InvoiceGridView.PaintStyleName = "Web"
-		Me.InvoiceGridView.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.InvoiceIDColumn, DevExpress.Data.ColumnSortOrder.Descending)})
+		Me.InvoiceGridView.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.GridColumn3, DevExpress.Data.ColumnSortOrder.Descending), New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.InvoiceIDColumn, DevExpress.Data.ColumnSortOrder.Descending)})
 		'
 		'InvoiceIDColumn
 		'
