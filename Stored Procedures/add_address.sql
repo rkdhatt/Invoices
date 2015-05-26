@@ -9,6 +9,9 @@ GO
 -- Revisions:
 --		Author                  Date       	Description                                       
 --		------------------- 	---------- 	--------------------------------------
+-- Personal Notes: Make sure to use the word insert instead of add ( DBterminology),
+--				   keep grant execute outside of procedure!! Use table locks for inserts
+--				   Check constraints DURING transaction instead of just raising errors.
 -- =================================================================================
 
 IF EXISTS (SELECT * FROM SYSOBJECTS WHERE NAME = 'add_address')
